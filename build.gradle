@@ -1,0 +1,33 @@
+group 'sbaldasty'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    enhanceEbean
+}
+
+dependencies {
+    compile "io.ebean:ebean:11.7.1"
+    compile 'org.slf4j:slf4j-simple:1.7.21'
+    enhanceEbean "io.ebean:ebean-agent:11.5.1"
+}
+
+compileJava.doLast {
+    ant.taskdef(
+            name: 'enhanceEbean',
+            classname: "io.ebean.enhance.ant.AntEnhanceTask",
+            classpath: configurations.enhanceEbean.asPath)
+
+    ant.enhanceEbean(
+            classSource: "${buildDir}/classes/java/main",
+            packages: "beans/**",
+            transformArgs: "debug=3")
+}
+
