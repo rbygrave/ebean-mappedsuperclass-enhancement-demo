@@ -6,15 +6,15 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public class Parent {
 
-	@Column(name = "inheritedColumn")
-	private String inheritedColumn;
+	@Column(name = "property")
+	private String property;
 
-	public String getInheritedColumn() {
-		return inheritedColumn;
+	public String getProperty() {
+		return property;
 	}
 
-	public void setInheritedColumn(String inheritedColumn) {
-		this.inheritedColumn = inheritedColumn;
+	public void setProperty(String property) {
+		this.property = property;
 	}
 
 }
