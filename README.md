@@ -1,0 +1,1 @@
+# ebean-mappedsuperclass-enhancement-demo
