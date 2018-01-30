@@ -1,0 +1,3 @@
+entity-packages: beans
+querybean-packages: none
+transactional-packages: none
