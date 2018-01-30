@@ -25,12 +25,21 @@ repositories {
 
 dependencies {
     compile "io.ebean:ebean:11.7.1"
-    compile 'org.slf4j:slf4j-simple:1.7.21'
+    //compile 'org.slf4j:slf4j-simple:1.7.21'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+
+    testCompile 'com.h2database:h2:1.4.196'
+    testCompile 'junit:junit:4.12'
+
 //    enhanceEbean "io.ebean:ebean-agent:11.5.1"
 }
 
 ebean {
     debugLevel = 1
+}
+
+test {
+    testLogging.showStandardStreams = true
 }
 
 //compileJava.doLast {
